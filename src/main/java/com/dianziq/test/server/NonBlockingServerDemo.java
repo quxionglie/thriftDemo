@@ -9,8 +9,6 @@ import org.apache.thrift.transport.TNonblockingServerTransport;
 
 import com.dianziq.test.UserService;
 import com.dianziq.test.UserServiceImpl;
-import com.dianziq.test.UserService.Iface;
-import com.dianziq.test.UserService.Processor;
 
 public class NonBlockingServerDemo {
 	public static final int SERVER_PORT = 7090;

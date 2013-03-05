@@ -7,11 +7,14 @@ import org.apache.thrift.transport.TFramedTransport;
 import org.apache.thrift.transport.TSocket;
 import org.apache.thrift.transport.TTransport;
 import org.apache.thrift.transport.TTransportException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.dianziq.test.LoginResponse;
 import com.dianziq.test.UserService;
 
 public class NonBlockingClientDemo {
+	Logger log = LoggerFactory.getLogger(NonBlockingClientDemo.class);
 
 	public static final String SERVER_IP = "localhost";
 	public static final int SERVER_PORT = 7090;
@@ -28,7 +31,7 @@ public class NonBlockingClientDemo {
 			UserService.Client client = new UserService.Client(protocol);
 			transport.open();
 			LoginResponse loginResponse = client.login(userName, passwd);
-			System.out.println("Thrify client result =: " + loginResponse);
+			log.info("Thrify client result =: " + loginResponse);
 		} catch (TTransportException e) {
 			e.printStackTrace();
 		} catch (TException e) {
