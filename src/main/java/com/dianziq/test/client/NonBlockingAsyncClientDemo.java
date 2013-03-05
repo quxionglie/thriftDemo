@@ -39,11 +39,7 @@ public class NonBlockingAsyncClientDemo {
 			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			if (null != transport) {
-				transport.close();
-			}
-		}
+		}  
 	}
 
 	class MyCallback implements AsyncMethodCallback<login_call> {
@@ -56,13 +52,13 @@ public class NonBlockingAsyncClientDemo {
 		// 返回结果
 		@Override
 		public void onComplete(login_call response) {
-			isComplete = true;
 			log.info("onComplete");
 			try {
 				log.info(response.getResult().toString());
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			isComplete = true;
 		}
 
 		// 返回异常
